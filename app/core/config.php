@@ -15,10 +15,10 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $ROOT =  str_replace(array($DOC_ROOT, "app/core/config.php"), '', $THIS_FILE);
     define("DEBUG", true);
 } else {
-    define('DBNAME', ''); // real server host database name
-    define('DBHOST', ''); // real server host host name
-    define('DBUSER', ''); // real server host user name
-    define('DBPASS', ''); // real server host password name
+    define('DBNAME', 'hencangr_hencan'); // real server host database name
+    define('DBHOST', 'localhost'); // real server host host name
+    define('DBUSER', 'hencangr_francis'); // real server host user name
+    define('DBPASS', 'Frajosan97@001'); // real server host password name
     define('DBDRIVER', '');
     /** get document root for online server */
     $ROOT = str_replace($_SERVER['SCRIPT_URL'], '/', $_SERVER['SCRIPT_URI']);
