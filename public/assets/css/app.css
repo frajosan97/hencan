@@ -1,0 +1,155 @@
+/* 
+|===========MAIN STYLING FOR THE PAGE
+*/
+:root {
+    --primary: aqua;
+    --secondary: rgb(40, 40, 65);
+}
+
+.homeBg {
+    background:
+        linear-gradient(45deg, transparent 20%, rgba(0, 0, 0, 0.329) 25%, transparent 25%),
+        linear-gradient(-45deg, transparent 20%, rgba(0, 0, 0, 0.329) 25%, transparent 25%),
+        linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.329) 80%, transparent 0),
+        radial-gradient(gray 2px, transparent 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.pg-theme {
+    background-color: var(--primary) !important;
+}
+
+.pg-theme-2 {
+    background: var(--secondary) !important;
+}
+
+.pg-color {
+    color: var(--primary);
+}
+
+.pg-color-2 {
+    color: var(--secondary);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary) !important;
+}
+
+.dividerHr {
+    background-color: none !important;
+    border: 1px dotted white !important;
+}
+
+.form-control {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid var(--primary);
+}
+
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid var(--primary);
+}
+
+button[type="submit"] {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: #fefefe;
+}
+
+.btn-custom,
+.buttons-html5,
+.swal2-styled {
+    background: var(--secondary);
+    color: #fefefe !important;
+}
+
+.btn-custom:hover,
+.buttons-html5:hover,
+.swal2-styled:hover {
+    opacity: 0.8;
+    background: var(--secondary);
+    color: #fefefe !important;
+}
+
+.btn-outline-custom {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline-custom:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.top-contacts li {
+    padding: 10px !important;
+    border-right: 1px dotted rgba(255, 255, 255, 0.623) !important;
+}
+
+.top-contacts li:first-child {
+    padding: 10px 10px 0px 0px !important;
+}
+
+.top-contacts li:last-child {
+    border-right: none !important;
+}
+
+.nav-item .active {
+    color: red !important;
+}
+
+.nav-item:hover .nav-link {
+    color: red !important;
+    text-decoration: underline !important;
+}
+
+.border-custom {
+    border: 1px solid var(--secondary) !important;
+}
+
+.domains-back {
+    background-image: linear-gradient(rgba(40, 40, 65, 0.650), rgba(40, 40, 65, 0.650)), url("../images/banners/r1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--secondary) !important;
+    background-color: var(--primary) !important;
+    box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+.accordion-button:focus,
+.accordion-button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.footer h5 {
+    text-transform: capitalize;
+}
+
+.top-contacts a,
+.footer a {
+    color: white !important;
+}
+
+.top-contacts a:hover,
+.footer a:hover {
+    color: var(--primary) !important;
+    text-decoration: underline;
+}
