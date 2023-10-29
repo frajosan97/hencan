@@ -1,3 +1,4 @@
+<?php show($_SERVER); ?>
 <!-- carousel section -->
 <section class="slides-section pg-theme pb-2">
     <div class="container d-flex justify-content-between py-2">
