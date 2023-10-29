@@ -10,14 +10,32 @@ class Auth
 
     public function index()
     {
-        $data = [];
-        $this->view('Auth', $data, __FUNCTION__);
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $appData = new App;
+            $clientModel = new ClientModel;
+            if ($clientModel->validate($_POST)) {
+                if ($clientModel->fetch(array("email" => $_POST['email'], "password" => md5($_POST['password'])))) {
+                    $_SESSION['client'] = $_POST['email'];
+                    if (isset($_POST['checkout'])) { // checkout
+                        $appData->cartCheckOut();
+                    }
+                    $clientModel->errors[] = "Loggin successfull";
+                } else {
+                    $clientModel->errors[] = "Incorrect email or password!";
+                }
+            }
+            // echo errors
+            echo implode("<br>", $clientModel->errors);
+        } else {
+            $data = [];
+            $this->view('Auth', $data, __FUNCTION__);
+        }
     }
 
     public function register()
     {
-        $appData = new App;
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $appData = new App;
             $clientModel = new ClientModel;
             if ($_POST['password-1'] == $_POST['password-2']) {
                 if (!(str_contains(" ", $_POST['username']))) {

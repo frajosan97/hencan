@@ -61,21 +61,18 @@
                             Domains
                         </a>
                         <ul class="dropdown-menu rounded-0">
-                            <li><a class="dropdown-item" href="">My Domains</a></li>
-                            <li><a class="dropdown-item" href="">Register Domains</a></li>
+                            <li><a class="dropdown-item" href="<?= ROOT . VIEWFOLDER ?>/domain">My Domains</a></li>
+                            <li><a class="dropdown-item" href="<?= ROOT ?>domain">Register Domains</a></li>
                             <li><a class="dropdown-item" href="">Renew Domains</a></li>
                             <li><a class="dropdown-item" href="">Transfer Domain to us</a></li>
-                            <li><a class="dropdown-item" href="">Search Domains</a></li>
                         </ul>
                     </li>
                 </ul>
                 <div class="btn-group m-0">
-                    <button type="button" class="btn py-2 pg-theme-2 text-white rounded-0 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Hello, <?= ACTIVE_CLIENT->fname ?>
-                    </button>
+                    <button type="button" class="btn py-2 pg-theme-2 text-white rounded-0 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Hello, <?= ACTIVE_CLIENT->fname ?></button>
                     <ul class="dropdown-menu dropdown-menu-end rounded-0 shadow-sm text-capitalize">
-                        <li><a href="" class="dropdown-item">account management</a></li>
-                        <li><a href="" class="dropdown-item">logout</a></li>
+                        <li><a href="<?= ROOT . VIEWFOLDER ?>/account" class="dropdown-item">account management</a></li>
+                        <li><a href="<?= ROOT ?>logout/client" class="dropdown-item">logout</a></li>
                     </ul>
                 </div>
             </div>

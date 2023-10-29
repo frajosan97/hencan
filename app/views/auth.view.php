@@ -142,41 +142,46 @@
             ?>
 
                 <div class="col-sm-6 col-md-4 my-5 mx-auto py-5">
-                    <div class="card pg-theme border-0 pt-1 shadow-sm">
-                        <div class="card-header border-0 bg-white h4 text-muted text-uppercase text-center pb-0">Client Login</div>
-                        <div class="card-body bg-white">
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 bg-transparent px-0">
-                                    <div class="form-group">
-                                        <div class="input-group border-custom rounded">
-                                            <span class="input-group-text border-0 bg-transparent text-muted" id="basic-addon1"><i class="fas fa-envelope"></i></span>
-                                            <input type="text" name="email" class="form-control border-0" id="email" placeholder="Email Address" autofocus required />
+                    <form class="clientLoginForm">
+                        <div class="card pg-theme border-0 pt-1 shadow-sm">
+                            <div class="card-header border-0 bg-white h4 text-muted text-uppercase text-center pb-0">Client Login</div>
+                            <div class="card-body bg-white">
+                                <?php if (isset($_GET['checkout'])) : ?>
+                                    <input type="hidden" name="checkout" value="<?= $_GET['checkout'] ?>">
+                                <?php endif; ?>
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 bg-transparent px-0">
+                                        <div class="form-group">
+                                            <div class="input-group border-custom rounded">
+                                                <span class="input-group-text border-0 bg-transparent text-muted" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                                                <input type="text" name="email" class="form-control border-0" id="email" placeholder="Email Address" autofocus required />
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item border-0 bg-transparent px-0">
-                                    <div class="form-group">
-                                        <div class="input-group border-custom rounded">
-                                            <span class="input-group-text border-0 bg-transparent text-muted" id="basic-addon1"><i class="fas fa-lock"></i></span>
-                                            <input type="password" name="password" class="form-control border-0" id="password" placeholder="Password" autofocus required />
+                                    </li>
+                                    <li class="list-group-item border-0 bg-transparent px-0">
+                                        <div class="form-group">
+                                            <div class="input-group border-custom rounded">
+                                                <span class="input-group-text border-0 bg-transparent text-muted" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                                                <input type="password" name="password" class="form-control border-0" id="password" placeholder="Password" autofocus required />
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item border-0 bg-transparent px-0">
-                                    <table class="table table-borderless m-0 align-middle">
-                                        <tr>
-                                            <td class="p-0"><a href="<?= ROOT ?>auth/register<?php if (isset($_GET['checkout'])) : ?>?checkout=yes<?php endif; ?>">Dont have an account?</a></td>
-                                            <td class="p-0 text-end"><a href="<?= ROOT ?>auth/forgot_password">Forgot Password?</a></td>
-                                        </tr>
-                                    </table>
-                                </li>
-                            </ul>
+                                    </li>
+                                    <li class="list-group-item border-0 bg-transparent px-0">
+                                        <table class="table table-borderless m-0 align-middle">
+                                            <tr>
+                                                <td class="p-0"><a href="<?= ROOT ?>auth/register<?php if (isset($_GET['checkout'])) : ?>?checkout=yes<?php endif; ?>">Dont have an account?</a></td>
+                                                <td class="p-0 text-end"><a href="<?= ROOT ?>auth/forgot_password">Forgot Password?</a></td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer border-0 bg-white d-flex justify-content-between">
+                                <button type="reset" class="btn bg-danger text-white"><i class="fas fa-history"></i> Reset</button>
+                                <button class="btn pg-theme"><i class="fas fa-sign-in"></i> Login</button>
+                            </div>
                         </div>
-                        <div class="card-footer border-0 bg-white d-flex justify-content-between">
-                            <button type="reset" class="btn bg-danger text-white"><i class="fas fa-history"></i> Reset</button>
-                            <button class="btn pg-theme"><i class="fas fa-sign-in"></i> Login</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
 
         <?php

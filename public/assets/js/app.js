@@ -10,15 +10,6 @@ function root() {
   }
 }
 
-// MOBILE NAV BAR
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-
 $(".searchDomainForm").on("submit", function (event) {
   event.preventDefault();
   var domSerRes = $(".domSerRes");
@@ -83,6 +74,31 @@ $(".regClientForm").on("submit", function (event) {
     processData: false,
     success: function (data) {
       alert(data);
+      if (data.includes("successfull")) {
+        window.location.href = root() + "client";
+      }
+    },
+    error: function (xhr, desc, err) {
+      console.log(xhr);
+    },
+  });
+});
+
+$(".clientLoginForm").on("submit", function (event) {
+  event.preventDefault();
+  var formData = new FormData(this);
+  $.ajax({
+    type: "POST",
+    url: root() + "/auth",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+      alert(data);
+      if (data.includes("successfull")) {
+        window.location.href = root() + "client";
+      }
     },
     error: function (xhr, desc, err) {
       console.log(xhr);

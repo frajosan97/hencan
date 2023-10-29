@@ -1,0 +1,1 @@
+<h3 class="text-capitalize"><?= greeting_msg() . " " . ACTIVE_CLIENT->fname ?>,</h3>
