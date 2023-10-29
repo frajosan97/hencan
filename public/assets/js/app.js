@@ -6,7 +6,7 @@ function root() {
   if (host == "localhost") {
     return "http://localhost/projects/hencan/";
   } else {
-    return "";
+    return "https://hencangroup.co.ke/";
   }
 }
 
@@ -106,21 +106,21 @@ $(".clientLoginForm").on("submit", function (event) {
   });
 });
 
-// function loadDoc() {
-//   setInterval(() => {
-//     var xhttp = new XMLHttpRequest();
-//     xhttp.onreadystatechange = function () {
-//       if (this.readyState == 4 && this.status == 200) {
-//         $(".cartCount").html(this.response);
-//       }
-//     };
-//     xhttp.open("GET", root() + "cart/checkCart", true);
-//     xhttp.send();
-//   }, 1000);
-// }
+function loadDoc() {
+  setInterval(() => {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        $(".cartCount").html(this.response);
+      }
+    };
+    xhttp.open("GET", root() + "cart/checkCart", true);
+    xhttp.send();
+  }, 1000);
+}
 
-// // Trigger load
-// loadDoc();
+// Trigger load
+loadDoc();
 
 function countryCodes() {
   var input = document.querySelector("#phone");
