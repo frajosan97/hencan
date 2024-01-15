@@ -20,5 +20,6 @@ require 'functions.php';
 require 'Database.php';
 require 'Model.php';
 require 'Controller.php';
+require SITE_ROOT . DS . 'public/assets/plugins/who-is/autoload.php';
 require 'App.php';
 require 'Main.php';

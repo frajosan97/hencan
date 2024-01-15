@@ -27,7 +27,7 @@ class Domain
     {
         if (!empty($_POST['domain'])) {
             $searchDomain = $_POST['domain'];
-            if (checkdnsrr($searchDomain, 'ANY')) {
+            if (domainInfo($searchDomain)) {
                 echo "<div class='text-danger'>The domain you entered is already registered with us - you will need to cancel it prior to placing a new order</div>";
             } else {
                 $domVal = smartDomain($searchDomain);

@@ -1,5 +1,7 @@
 <?php
 
+use Iodev\Whois\Factory;
+
 function isMobile()
 {
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -91,11 +93,49 @@ function incFile($incFile = "")
     }
 }
 
+function getDomain($url = '')
+{
+    $strToLower = strtolower(trim($url));
+    $httpPregReplace = preg_replace('/^http:\/\//i', '', $strToLower);
+    $httpsPregReplace = preg_replace('/^https:\/\//i', '', $httpPregReplace);
+    $wwwPregReplace = preg_replace('/^www\./i', '', $httpsPregReplace);
+    $explodeToArray = explode('/', $wwwPregReplace);
+    $finalDomainName = trim($explodeToArray[0]);
+
+    return $finalDomainName;
+}
+
+function domainInfo($domain)
+{
+    $newDomain = getDomain($domain);
+    // Creating default configured client
+    $whois = Factory::get()->createWhois();
+    // // Checking availability
+    if ($whois->isDomainAvailable($newDomain)) {
+        return "This domain is already registered by another user!";
+    }
+    // // Supports Unicode (converts to punycode)
+    // if ($whois->isDomainAvailable("почта.рф")) {
+    //     print "Bingo! Domain is available! :)";
+    // }
+    // Getting raw-text lookup
+    // $response = $whois->lookupDomain($newDomain);
+    // show($response->text);
+    // Getting parsed domain info
+    // $info = $whois->loadDomainInfo($newDomain);
+    // if ($info) {
+    //     return [
+    //         'registered' => date("Y-m-d", $info->creationDate),
+    //         'expires' => date("Y-m-d", $info->expirationDate),
+    //         'owner' => $info->owner,
+    //     ];
+    // }
+}
+
 function smartDomain($domain)
 {
     $newDomain = str_replace("http:", "", $domain);
     $newDomain = str_replace("https:", "", $newDomain);
-    $newDomain = str_replace("s:", "", $newDomain);
     $newDomain = str_replace("/", "", $newDomain);
     $newDomain = str_replace("www", "", $newDomain);
     $domain_array = explode(".", $newDomain);
